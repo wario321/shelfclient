@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: 'https://shelflabelapi.herokuapp.com/'
+    baseURL: 'https://shelflabelapi.herokuapp.com'
 })
