@@ -1,0 +1,8 @@
+.barcode {
+    position: relative;
+    display: inline-block;
+    overflow: auto;
+    resize: both;
+    height: 100%;
+    width: 100%;
+}

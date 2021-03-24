@@ -1,0 +1,73 @@
+{
+    "catalog": [{
+        "title": "chicken",
+        "price": 100,
+        "promotion": false
+    },{
+        "title": "fish",
+        "price": 200,
+        "promotion": true
+    },
+    {
+        "title": "banana",
+        "price": 20,
+        "promotion":false
+    },{
+        "title": "apple",
+        "price": 45,
+        "promotion":true
+    }],
+    "enable":[{
+            "title": "beef",
+            "price": 100,
+            "promotion": false
+        },{
+            "title": "pork",
+            "price": 200,
+            "promotion": true
+        },
+        {
+            "title": "grape",
+            "price": 20,
+            "promotion":false
+        },{
+            "title": "pineapple",
+            "price": 45,
+            "promotion":true
+        },{
+            "title": "cabbage",
+            "price": 100,
+            "promotion": false
+        },{
+            "title": "carrot",
+            "price": 200,
+            "promotion": true
+        },
+        {
+            "title": "candy",
+            "price": 20,
+            "promotion":false
+        },{
+            "title": "chocolate",
+            "price": 45,
+            "promotion":true
+        },{
+            "title": "shell",
+            "price": 100,
+            "promotion": false
+        },{
+            "title": "tofu",
+            "price": 200,
+            "promotion": true
+        },
+        {
+            "title": "powder",
+            "price": 20,
+            "promotion":false
+        },{
+            "title": "oil",
+            "price": 45,
+            "promotion":true
+        }
+    ]
+}
