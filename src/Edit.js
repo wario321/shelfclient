@@ -31,7 +31,7 @@ const renderInput3 = (field) => {
             <div className="four wide field">
                  <label>type</label>
                 <Field name="type" component="select" className="ui fluid dropdown">
-                    <option value="kg/baht">Kg/baht</option>
+                    <option value="baht/kg">Kg/baht</option>
                     <option value="baht/pack">baht/pack</option>
                     <option value="baht">baht</option>
                 </Field>

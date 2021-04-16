@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import {connect} from 'react-redux'
 import {stock} from '../actions'
 import {Link} from 'react-router-dom'
+import Login from './Login'
+import history from '../history'
+import auth from "../firebase"
 
 class Stock extends React.Component {
 
@@ -10,6 +13,13 @@ class Stock extends React.Component {
 
     componentDidMount(){
         this.props.stock()
+        auth.onAuthStateChanged(user => {
+            if(user){
+                //this.props.stillSignIn(user);
+                localStorage.setItem('CurrentUser' , user.uid)
+                console.log(localStorage.getItem('CurrentUser'))
+            }
+        })
     }
 
     renderList = () => {
@@ -59,7 +69,12 @@ class Stock extends React.Component {
     }
 
     render(){
-        return <div><div className="ui large header">Stock</div><div className="ui menu">
+        if(localStorage.getItem('CurrentUser') == null){
+            history.push('/')
+            return <div><Login /></div>
+        }
+        else {
+            return <div><div className="ui large header">Stock</div><div className="ui menu">
         <div className="left menu">
             <div className="item">
             <div className="ui transparent icon input">
@@ -78,6 +93,8 @@ class Stock extends React.Component {
             </div>
         </div>
     }
+        }
+        
 }
 
 const mapStateToProps = (state) => {

@@ -78,54 +78,54 @@ class Login extends React.Component {
             data = [
                 {
                   name: '00:00 AM',
-                  uv: 4000,
-                  pv: 2400,
+                  expenses: 1000,
+                  income: 2400,
                   amt: 2400,
                 },
                 {
                   name: '04:00 AM',
-                  uv: 3000,
-                  pv: 1398,
+                  expenses: 3000,
+                  income: 1398,
                   amt: 2210,
                 },
                 {
                   name: '08:00 AM',
-                  uv: 2000,
-                  pv: 9800,
+                  expenses: 2000,
+                  income: 5800,
                   amt: 2290,
                 },
                 {
                   name: '12:00 AM',
-                  uv: 2780,
-                  pv: 3908,
+                  expenses: 2780,
+                  income: 3908,
                   amt: 2000,
                 },
                 {
                   name: '16:00 PM',
-                  uv: 1890,
-                  pv: 4800,
+                  expenses: 1890,
+                  income: 4800,
                   amt: 2181,
                 },
                 {
                   name: '20:00 PM',
-                  uv: 2390,
-                  pv: 3800,
+                  expenses: 2390,
+                  income: 3800,
                   amt: 2500,
                 },
                 {
                   name: '24:00 PM',
-                  uv: 3490,
-                  pv: 4300,
+                  expenses: 3490,
+                  income: 4300,
                   amt: 2100,
                 },
               ]
             }
         else if(this.state.active == "month"){
             data = [
-                { name: "January", uv: 4000,pv: 2400,amt: 2400},{name : "Febuary",uv: 5000, pv: 2500,amt: 2500},{name: "March",uv: 6000,pv:3000,amt:3000},
-                {name: "April",uv:1500,pv:1400,amt:1400},{name:"May",uv:1700,pv:2000,amt:2000},{name:"June",uv:1800,pv:4000,amt:4000},{name:"July",uv:3000,pv:6000,amt:6000},
-                {name: "August",uv:3200,pv:2500,amt:2500},{name:"September",uv:4400,pv:3300,amt:3300},{name:"October",pv:4000,uv:3000,amt:3000},
-                {name:"November",uv:2000,pv:5000,amt:3000},{name:"December",uv:15500,pv:2200,amt:2200}
+                { name: "January", expenses: 1000,income: 2400,amt: 2400},{name : "Febuary",expenses: 1500, income: 2500,amt: 2500},{name: "March",expenses: 2000,income:3000,amt:3000},
+                {name: "April",expenses:1500,income:3000,amt:1400},{name:"May",expenses:1700,income:2500,amt:2000},{name:"June",expenses:1800,income:4000,amt:4000},{name:"July",expenses:2000,income:4000,amt:6000},
+                {name: "August",expenses:2500,income:3500,amt:2500},{name:"September",expenses:1000,income:3300,amt:3300},{name:"October",income:3000,expenses:1500,amt:3000},
+                {name:"November",expenses:2000,income:5000,amt:3000},{name:"December",expenses:1500,income:5000,amt:2200}
             ]
         }
 
@@ -145,8 +145,8 @@ class Login extends React.Component {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                <Line type="monotone" dataKey="income" stroke="#0FADF1" activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="expenses" stroke="#F1370F" />
               </LineChart></ResponsiveContainer>
           
           
@@ -188,7 +188,6 @@ class Login extends React.Component {
                     <div className="ui secondary pointing menu">
                         <div className={(this.state.active == "day") ? 'item active' : 'item'} key='day' id='day' onClick={this.handleClick}>Day</div>
                         <div className={(this.state.active == "month") ? 'item active' : 'item'} id="month" onClick={this.handleClick}>Month</div>
-                        <div className={(this.state.active == "year") ? 'item active' : 'item'} id="year" onClick={this.handleClick}>Year</div>
                     </div>
                         <div className="ui segment">{this.renderCharts()}</div>
                     </div>
