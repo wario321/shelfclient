@@ -36,7 +36,7 @@ class Stock extends React.Component {
         return currentData.map(mem => {
             return <div className="item">
                     <div className="right floated content">
-                        <Link to={`/item/${mem.shelf}`} className="ui blue button">{mem.shelf}</Link>
+                        <Link to={`/item/${mem.shelf}`} className={ (mem.shelf) ? "ui blue button" : ''}>{mem.shelf}</Link>
                     </div>
                     <div className="content">
                         <div className="header">{mem.title}</div>
