@@ -24,8 +24,15 @@ const Modal = props => {
     
     const addFunc = (mem) => {
         //setSelected([...selected,selected.filter(mem2 => mem2.id !== mem.id)]);
-        setSelected([...selected,mem]);
-        console.log(selected.filter(checked => checked.id !== mem.id))
+        if(selected.includes(mem)){
+            var hold = [...selected].filter(data => data != mem)
+            setSelected([...hold])
+        }
+        else{
+            setSelected([...selected,mem]);
+        }
+        
+        //console.log(selected.filter(checked => checked.id !== mem.id))
     }
 
     const onSubmit = () => {
