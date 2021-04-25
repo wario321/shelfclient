@@ -40,7 +40,7 @@ export const callApi = () => async (dispatch) => {
 }
 
 export const callShelf = () => async (dispatch) => {
-    const response = await api.get('/testapi');
+    const response = await api.get('/shelf_info');
     dispatch({type: 'SHELF_INDEX',payload: response.data})
 }
 
@@ -91,7 +91,7 @@ export const edit_shelf = (shelf,data) => async (dispatch) => {
 }
 
 export const filter_shelf = (shelf) => async (dispatch) => {
-    const response = await api.get('/testapi')
+    const response = await api.get('/shelf_info')
     const filter = response.data.filter(mem => mem.name == shelf);
     console.log(filter)
     dispatch({
