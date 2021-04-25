@@ -101,7 +101,7 @@ export const filter_shelf = (shelf) => async (dispatch) => {
 }
 
 export const add_shelf = (data) => async (dispatch) => {
-    const response = await api.post('add_shelf',data)
+    const response = await api.post('/add_shelf',data)
     dispatch({
         type: 'ADD_SHELF'
     })
