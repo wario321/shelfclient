@@ -13,6 +13,7 @@ export const signOut = () => {
     return {
         type:'SIGN_OUT'
     }
+    
 }
 
 export const stillSignIn = (user) => {
@@ -105,7 +106,7 @@ export const add_shelf = (data) => async (dispatch) => {
     dispatch({
         type: 'ADD_SHELF'
     })
-    //window.location.replace("/catalogs")
+    window.location.replace("/catalogs")
 
 }
 
@@ -114,7 +115,7 @@ export const delete_shelf = (shelf,uid) => async (dispatch) => {
     dispatch({
         type: 'DELETE_SHELF'
     })
-    //window.location.replace("/catalogs")
+    window.location.replace("/catalogs")
 }
 
 export const list_of_shelf = () => async (dispatch) => {

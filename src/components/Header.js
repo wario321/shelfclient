@@ -9,6 +9,7 @@ class Header extends React.Component {
     
     onSignOut = () => {
         this.props.signOut()
+        window.location.replace('/')
     }
 
     renderUser(){

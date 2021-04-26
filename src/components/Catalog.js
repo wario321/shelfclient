@@ -7,7 +7,9 @@ import {Link} from 'react-router-dom'
 import {catalogsList,stillSignIn} from '../actions'
 import {connect} from 'react-redux'
 import Loading from './Loading'
+import Login from '../components/Login'
 import auth from '../firebase'
+import history from '../history'
 
 class Catalog extends React.Component {
     
@@ -67,7 +69,7 @@ class Catalog extends React.Component {
             return <div className="column">
                <div key={mem.id} className="ui fluid card">{this.renderPromo(mem.promotion)}
                 <div className="content">
-                    <Link to={`/delete/${this.props.match.params.shelf}/${mem.id}`}><i className="ui right floated red trash alternate outline icon"></i></Link>
+                    {(localStorage.getItem("CurrentUser") == "xsTiCSYvwde8AYT0aq2DMNtT70l1") ? <Link to={`/delete/${this.props.match.params.shelf}/${mem.id}`}><i className="ui right floated red trash alternate outline icon"></i></Link> : <div></div>}
                     <Link to={`/edit/${this.props.match.params.shelf}/${mem.id}`}><i className="edit right floated icon"></i></Link>
                     <div className="header">{mem.title}</div>
                     <div className="description"><b>{mem.price} &nbsp; {mem.type}</b><span className="right floated time">{mem.weight}</span></div>
@@ -114,6 +116,10 @@ class Catalog extends React.Component {
     render(){
         if(this.props.item.length == 0 || this.state.delay != true){
             return <Loading />
+        }
+        if(localStorage.getItem('CurrentUser') == null){
+            window.location.replace('/')
+            //return <div><Login /></div>
         }
         else{
             return <div>

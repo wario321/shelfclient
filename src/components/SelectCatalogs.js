@@ -76,7 +76,7 @@ class SelectCatalogs extends React.Component {
                         <i className="cog icon"></i>
                         <div className="menu">
                         <Link to={`/item/${mem.name}/edit`} className="item"><i className="images outline icon"></i>Change image</Link>
-                        <Link to={`/item/${mem.name}/delete`} className="item"><i className="ui red trash alternate outline icon"></i>Delete Shelf</Link>
+                        {(localStorage.getItem("CurrentUser") == "xsTiCSYvwde8AYT0aq2DMNtT70l1") ? <Link to={`/item/${mem.name}/delete`} className="item"><i className="ui red trash alternate outline icon"></i>Delete Shelf</Link> : <div></div>}
                         </div> 
                         </div></div>
                 </div> 
@@ -88,7 +88,7 @@ class SelectCatalogs extends React.Component {
 
     render(){
         if(localStorage.getItem('CurrentUser') == null){
-            history.push('/')
+            //history.push('/')
             return <div><Login /></div>
         }
         if(this.props.index.length == 0){
