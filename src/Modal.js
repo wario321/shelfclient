@@ -35,6 +35,23 @@ const Modal = props => {
         //console.log(selected.filter(checked => checked.id !== mem.id))
     }
 
+    const render_stock = (stock) => {
+        if(stock > 0){
+            return <span className="right floated time"><p style={{color: 'green'}}>IN STOCK</p></span>
+        }
+        else{
+            return <span className="right floated time"><p style={{color:'red'}}>OUT OF STOCK</p></span>
+        }
+    }
+
+    const renderPromo = (data) => {
+        if(data !== "false"){
+            return <i className="ui red top attached label">Promotion : {data}</i>
+        }
+
+        return '';
+    }
+
     const onSubmit = () => {
         props.addItem(props.shelf,selected);
     }
@@ -42,22 +59,25 @@ const Modal = props => {
     const renderData = () => {
         return props.enable.map(mem => {
             return <div className="column">
-            <div className="ui fluid card">
-            <div className="content">
-                <div className="ui right floated compact segment">
-                    <div className="ui fitted checkbox">
-                        <input type="checkbox" onClick={() => addFunc(mem)}/>
-                        <label></label>
-                    </div>
-                </div>
-                <div className="header">{mem.title}</div>
-                <div className="description">{mem.price}  {mem.type}</div>
-            </div>
-            <div className="extra content">
-            <div className="barcode"><Barcode value="12345678" /></div>
-            </div>
-        </div>
-        </div>
+            <div key={mem.id} className="ui fluid card">{renderPromo(mem.promotion)}
+             <div className="content">
+                 <div className="ui right floated compact segment">
+                     <div className="ui fitted checkbox">
+                         <input type="checkbox" onChange={() => addFunc(mem)}/>
+                         <label ></label>
+                     </div>
+                 </div>
+                 <div className="header">{mem.title}</div>
+                 <div className="description"><b>{mem.price} &nbsp; {mem.type}</b><span className="right floated time">{mem.weight}</span></div>
+                 <div className="description">{mem.code}</div>
+                 <div className="description">{mem.barcode_code} {render_stock(mem.stock)}</div>
+             </div>
+             <div className="extra content">
+             <div className="barcode"><Barcode value={mem.barcode_code} /></div>
+             <i className="bottom attached label">last update : {mem.last_update}</i>
+             </div>
+         </div>
+         </div>
         })
     }
 
